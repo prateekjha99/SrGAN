@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="heading">
+        Super-pixelation
+    </h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col" id="first">
+                <label for="file" style="cursor: pointer;">
+                    <div class="image-container">
+                        <img id="input" width="500" max-height="400" src="<%=input_src%>" />
+                    </div>
+                    <p class="btn btn-primary btn-lg btn-block">Upload Image</p>
+                </label>
+                <form method="post" enctype="multipart/form-data" action="/upload">
+                    <input type="file" accept="image/*" name="input-photo" id="file" onchange="loadFile(event)"
+                        style="display: none;">
+                    <input type="submit" id="submit-form" style="display : none;">
+                </form>
+
+            </div>
+
+            <div class="col" id="second">
+                <div class="image-container">
+                    <img id="output" width="500" max-height="400" src="<%=output_src%>" />
+                </div>
+                <br>
+
+                <div class="btn-group">
+                    <!-- <button class="btn btn-success btn-lg"> -->
+                    <label for="submit-form">
+                        <span class="btn btn-success btn-lg">Generate</span>
+                    </label>
+                    <!-- </button> -->
+
+                    <button type=" button" class="btn btn-primary btn-lg" onclick="download(event)"
+                        value="Download">Download</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/script.js"></script>
+
+</html>
